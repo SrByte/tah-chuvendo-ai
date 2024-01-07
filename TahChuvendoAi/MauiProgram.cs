@@ -1,4 +1,9 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using CommunityToolkit.Maui;
+using Microsoft.Extensions.Logging;
+using TahChuvendoAi.Auth0;
+using TahChuvendoAi.Services;
+using TahChuvendoAi.ViewModels;
+using TahChuvendoAi.Views;
 
 namespace TahChuvendoAi
 {
@@ -13,11 +18,30 @@ namespace TahChuvendoAi
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                });
+                })
+                 .UseMauiCommunityToolkit();
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
+
+            // 👇 new code
+            builder.Services.AddSingleton<LoginViewModel>();
+            builder.Services.AddSingleton<IUsuarioService, UsuarioService>();
+            builder.Services.AddSingleton<HomePage>();
+            builder.Services.AddSingleton<LoginPage>();
+
+            builder.Services.AddSingleton(new Auth0Client(new()
+            {
+                Domain = "dev-13evj4mwojoazag7.us.auth0.com",
+                ClientId = "R80qTeu5N7Pf5brl5w2hRKcAyrjSbYNP",
+                Scope = "openid profile",
+                #if WINDOWS
+                    RedirectUri = "http://localhost/callback"
+                #else
+                    RedirectUri = "myapp://callback"
+                #endif
+            }));
 
             return builder.Build();
         }
