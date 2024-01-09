@@ -4,12 +4,12 @@
              x:Class="TahChuvendoAi.Views.CheckingForcast"
              Title="Processando consulta">
     <VerticalStackLayout>
-       
+
         <Image
          Source="dotnet_bot.png"
          HeightRequest="120"
          Aspect="AspectFit"/>
-        
+
         <Image
          Margin="30,30,30,30"
          Source="checking_weather.png"
@@ -18,12 +18,12 @@
          HorizontalOptions="Center"
          Aspect="AspectFit" />
 
+
         <Label 
-            Margin="20,35,00,20" 
+            Margin="20,10,00,20" 
             LineBreakMode="WordWrap"
             VerticalOptions="Center" 
-            HorizontalOptions="Center"   
-            >
+            HorizontalOptions="Center">
 
             <Label.FormattedText>
                 <FormattedString>
@@ -36,6 +36,9 @@
                 </FormattedString>
             </Label.FormattedText>
         </Label>
+       
+        <Image x:Name="imgLoader" Source="wait.gif" HeightRequest="100" ></Image>
+
 
     </VerticalStackLayout>
 </ContentPage>
