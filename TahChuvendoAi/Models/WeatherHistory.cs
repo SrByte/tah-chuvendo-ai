@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace TahChuvendoAi.Models
 {
-    public class WeatherHistoryViewModel
+    public class WeatherHistory
     {
         public string IntroTitle { get; set; }
-        public string IntroImage { get; set; }
+        public string WeatherImage { get; set; }
         public long Latitude { get; set; }
         public long Longitude { get; set; }
         public int Probabilidade { get; set; }

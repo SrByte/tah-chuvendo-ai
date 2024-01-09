@@ -35,27 +35,23 @@
 
 
             <CarouselView 
-                IndicatorView="IndicatorCarousel"
+                x:Name="CarouselView"               
                 Grid.Row="3" 
                 Grid.ColumnSpan="4" 
-                Margin="2,15,2,15">
-                <CarouselView.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>promocao1.png</x:String>
-                        <x:String>promocao2.png</x:String>
-                        <x:String>promocao3.png</x:String>
-                        <x:String>ensolarado.png</x:String>
-                    </x:Array>
-                </CarouselView.ItemsSource>
+                Margin="2,15,2,15"
+                IndicatorView="IndicatorView">
                 <CarouselView.ItemTemplate>
                     <DataTemplate>
-                        <Frame CornerRadius="10" Padding="0">
-                            <Image Source="{Binding}" Aspect="AspectFill"/>
-                        </Frame>
+                        <VerticalStackLayout Padding="10">
+                            <Label Text="{Binding IntroTitle}" FontSize="Large" HorizontalTextAlignment="Center"  HorizontalOptions="Fill"></Label>
+                            <Frame CornerRadius="10" Padding="0"  >
+                                <Image Source="{Binding Image}" Aspect="Fill" HeightRequest="150"/>
+                            </Frame>
+                        </VerticalStackLayout>
                     </DataTemplate>
                 </CarouselView.ItemTemplate>
             </CarouselView>
-
+            <IndicatorView x:Name="IndicatorView" Margin="5" HorizontalOptions="Center" IndicatorColor="Blue" SelectedIndicatorColor="Red"/>
         </VerticalStackLayout>
     </ScrollView>
 
