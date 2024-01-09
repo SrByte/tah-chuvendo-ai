@@ -24,9 +24,9 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center"   
             >
-            
+
             <Label.FormattedText>
-              <FormattedString>
+                <FormattedString>
                     <Span 
                         Text="Estamos checando como está o tempo lá fora ...." 
                         TextColor="#110B44" 
@@ -36,13 +36,6 @@
                 </FormattedString>
             </Label.FormattedText>
         </Label>
-        <!--Margin="20,35,00,20"
-         Text="Estamos checando como está o tempo lá fora...." 
-         Style="font-weight: bold;"
-         TextColor="#110B44"
-         FontSize="Title"
-         VerticalOptions="Center" 
-         HorizontalOptions="Center" />-->
 
     </VerticalStackLayout>
 </ContentPage>
