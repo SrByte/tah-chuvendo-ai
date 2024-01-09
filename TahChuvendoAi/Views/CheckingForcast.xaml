@@ -4,9 +4,45 @@
              x:Class="TahChuvendoAi.Views.CheckingForcast"
              Title="Processando consulta">
     <VerticalStackLayout>
+       
+        <Image
+         Source="dotnet_bot.png"
+         HeightRequest="120"
+         Aspect="AspectFit"/>
+        
+        <Image
+         Margin="30,30,30,30"
+         Source="checking_weather.png"
+         HeightRequest="400"
+         VerticalOptions="Center" 
+         HorizontalOptions="Center"
+         Aspect="AspectFit" />
+
         <Label 
-            Text="Welcome to .NET MAUI!"
+            Margin="20,35,00,20" 
+            LineBreakMode="WordWrap"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            HorizontalOptions="Center"   
+            >
+            
+            <Label.FormattedText>
+              <FormattedString>
+                    <Span 
+                        Text="Estamos checando como está o tempo lá fora ...." 
+                        TextColor="#110B44" 
+                        FontAttributes="Bold"
+                         FontSize="24"
+                     />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <!--Margin="20,35,00,20"
+         Text="Estamos checando como está o tempo lá fora...." 
+         Style="font-weight: bold;"
+         TextColor="#110B44"
+         FontSize="Title"
+         VerticalOptions="Center" 
+         HorizontalOptions="Center" />-->
+
     </VerticalStackLayout>
 </ContentPage>
