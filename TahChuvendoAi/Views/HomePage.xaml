@@ -21,6 +21,7 @@
                 CornerRadius="150"
                 HeightRequest="150"
                 WidthRequest="150"
+                Clicked="Button_Clicked"
                 HorizontalOptions="Center" />
 
             <!-- Título da seção Histórico -->
@@ -32,9 +33,25 @@
                 Style="{StaticResource Headline}"
                 SemanticProperties.HeadingLevel="Level1" />
 
-            <CarouselView>
 
+            <CarouselView 
+                x:Name="CarouselView"               
+                Grid.Row="3" 
+                Grid.ColumnSpan="4" 
+                Margin="2,15,2,15"
+                IndicatorView="IndicatorView">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout Padding="10">
+                            <Label Text="{Binding IntroTitle}" FontSize="Large" HorizontalTextAlignment="Center"  HorizontalOptions="Fill"></Label>
+                            <Frame CornerRadius="10" Padding="0"  >
+                                <Image Source="{Binding Image}" Aspect="Fill" HeightRequest="150"/>
+                            </Frame>
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
             </CarouselView>
+            <IndicatorView x:Name="IndicatorView" Margin="5" HorizontalOptions="Center" IndicatorColor="Blue" SelectedIndicatorColor="Red"/>
         </VerticalStackLayout>
     </ScrollView>
 

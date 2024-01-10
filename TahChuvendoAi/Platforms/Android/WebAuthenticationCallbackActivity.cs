@@ -4,12 +4,12 @@ using Android.Content.PM;
 namespace TahChuvendoAi
 {
     [Activity(NoHistory = true, LaunchMode = LaunchMode.SingleTop, Exported = true)]
-    [IntentFilter([Android.Content.Intent.ActionView],
-              Categories = [
-                  Android.Content.Intent.CategoryDefault,
+    [IntentFilter(new[] { Android.Content.Intent.ActionView },
+               Categories = new[]
+               {    Android.Content.Intent.CategoryDefault,
                   Android.Content.Intent.CategoryBrowsable
-              ],
-              DataScheme = CALLBACK_SCHEME)]
+               },
+               DataScheme = CALLBACK_SCHEME)]
     public class WebAuthenticationCallbackActivity : WebAuthenticatorCallbackActivity
     {
         const string CALLBACK_SCHEME = "myapp";
