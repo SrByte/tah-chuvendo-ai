@@ -42,6 +42,7 @@
         <ShellContent Title="Home" Shell.NavBarIsVisible="true" ContentTemplate="{DataTemplate view:HomePage}" />
     </FlyoutItem>
 
+    <ShellContent Shell.NavBarIsVisible="False" ContentTemplate="{DataTemplate view:SearchResult}" />
 
     <Shell.FlyoutFooter>
         <VerticalStackLayout BackgroundColor="#110C44">

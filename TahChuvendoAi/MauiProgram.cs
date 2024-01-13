@@ -24,8 +24,11 @@ namespace TahChuvendoAi
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
-
-            // 👇 new code
+            builder.Services.AddSingleton<IOpenWeatherService, OpenWeatherService>();
+            builder.Services.AddTransient<SearchResultViewModel>();
+            builder.Services.AddTransient<SearchResult>();
+            builder.Services.AddSingleton<ITahChuvendoAiService, TahChuvendoAiService>();
+            builder.Services.AddSingleton<HomeViewModel>();
             builder.Services.AddSingleton<LoginViewModel>();
             builder.Services.AddSingleton<IUsuarioService, UsuarioService>();
             builder.Services.AddSingleton<HomePage>();
@@ -35,6 +38,7 @@ namespace TahChuvendoAi
             {
                 Domain = "dev-13evj4mwojoazag7.us.auth0.com",
                 ClientId = "R80qTeu5N7Pf5brl5w2hRKcAyrjSbYNP",
+                Audience = "https://localhost:44386",
                 Scope = "openid profile",
                 #if WINDOWS
                     RedirectUri = "http://localhost/callback"

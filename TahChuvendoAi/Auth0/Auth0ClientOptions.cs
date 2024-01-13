@@ -16,6 +16,7 @@ public class Auth0ClientOptions
     public string RedirectUri { get; set; }
 
     public string Scope { get; set; }
+    public string Audience { get; set; }
 
     public IdentityModel.OidcClient.Browser.IBrowser Browser { get; set; }
 }
