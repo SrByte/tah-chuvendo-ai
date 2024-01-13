@@ -8,6 +8,8 @@ public class Auth0Client
 {
     private readonly OidcClient oidcClient;
 
+    private string audience;
+
     public Auth0Client(Auth0ClientOptions options)
     {
         oidcClient = new OidcClient(new OidcClientOptions
@@ -18,6 +20,8 @@ public class Auth0Client
             RedirectUri = options.RedirectUri,
             Browser = options.Browser
         });
+
+        audience = options.Audience;
     }
 
     public IdentityModel.OidcClient.Browser.IBrowser Browser
@@ -34,7 +38,13 @@ public class Auth0Client
 
     public async Task<LoginResult> LoginAsync()
     {
-        return await oidcClient.LoginAsync();
+        return await oidcClient.LoginAsync(new LoginRequest
+        {
+            FrontChannelExtraParameters = new Parameters(new Dictionary<string, string>
+            {
+                { "audience", audience }
+            })
+        });
     }
 
     // 👇 new code

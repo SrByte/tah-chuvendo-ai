@@ -1,4 +1,5 @@
 ﻿using TahChuvendoAi.ViewModels;
+using TahChuvendoAi.Views;
 
 namespace TahChuvendoAi
 {
@@ -8,6 +9,8 @@ namespace TahChuvendoAi
         {
             InitializeComponent();
             BindingContext = loginViewModel;
+
+            Routing.RegisterRoute(nameof(SearchResult), typeof(SearchResult));
         }
     }
 }
