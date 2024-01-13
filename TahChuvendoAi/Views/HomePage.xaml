@@ -38,6 +38,8 @@
                 Style="{StaticResource Headline}"
                 SemanticProperties.HeadingLevel="Level1" />
 
+            <ActivityIndicator Color="#110C44" IsRunning="{Binding IsHistoryLoading}" IsVisible="{Binding IsHistoryLoading}" HorizontalOptions="Center" />
+
             <CollectionView x:Name="CollectionView">
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout Orientation="Horizontal" />

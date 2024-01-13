@@ -16,6 +16,9 @@ namespace TahChuvendoAi.ViewModels
         [ObservableProperty]
         private bool isLoading;
 
+        [ObservableProperty]
+        private bool isHistoryLoading;
+
         private readonly ITahChuvendoAiService tahChuvendoAiService;
         private readonly IOpenWeatherService openWeatherService;
 
@@ -67,11 +70,13 @@ namespace TahChuvendoAi.ViewModels
 
         public async Task LoadHistories()
         {
+            IsHistoryLoading = true;
+
             var accessToken = Preferences.Default.Get("AccessToken", "");
 
             var historyData = await tahChuvendoAiService.Historico(accessToken);
 
-            var list = new ObservableCollection<WeatherHistoryViewModel>();
+            Histories.Clear();
 
             historyData.OrderByDescending(x => x.DataHora).Take(5).ToList().ForEach(x =>
             {
@@ -83,6 +88,8 @@ namespace TahChuvendoAi.ViewModels
                     Temperatura = x.TemperaturaCelsius + "°C"
                 });
             });
+
+            IsHistoryLoading = false;
         }
     }
 }
